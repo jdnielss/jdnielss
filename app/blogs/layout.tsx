@@ -2,6 +2,7 @@
 import { TextMorph } from '@/components/ui/text-morph'
 import { ScrollProgress } from '@/components/ui/scroll-progress'
 import { useEffect, useState } from 'react'
+import { Copy, Check } from 'lucide-react'
 
 function CopyButton() {
   const [text, setText] = useState('Copy')
@@ -19,11 +20,12 @@ function CopyButton() {
         setText('Copied')
         navigator.clipboard.writeText(currentUrl)
       }}
-      className="font-base flex items-center gap-1 text-center text-sm text-zinc-500 transition-colors dark:text-zinc-400"
+      className="inline-flex items-center gap-2 rounded-full bg-zinc-100 px-3 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
       type="button"
+      aria-label="Copy URL"
     >
-      <TextMorph>{text}</TextMorph>
-      <span>URL</span>
+      {text === 'Copied' ? <Check size={16} /> : <Copy size={16} />}
+      <TextMorph>{text === 'Copied' ? 'Copied' : 'Copy URL'}</TextMorph>
     </button>
   )
 }
