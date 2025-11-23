@@ -40,28 +40,6 @@ export const PROJECTS: Project[] = [
     id: 'project-inspirasi-satu',
   },
   {
-    name: 'Software Engineer — Madju Computeindo',
-    description:
-      'Madju Computeindo is an IT solutions provider offering enterprise software and cloud computing services. Developed a small ERP system that enables businesses to generate invoices for tax purposes and manage financial records efficiently.',
-    link: '/projects/project-madju-computeindo',
-    id: 'project-madju-computeindo',
-  },
-  {
-    name: 'Software Engineer — Zoan.co.id',
-    description:
-      'Zoan.co.id is an e-Commerce and logistics solutions company. Revamped the company profile website, enhancing its design, performance, and user experience to better showcase the company’s services.',
-    link: '/projects/project-zoan',
-    id: 'project-zoan',
-  },
-  {
-    name: 'Software Engineer — BTPN',
-    description:
-      'BTPN (Bank Tabungan Pensiunan Nasional) is a leading digital banking provider in Indonesia. Developed AJO (Aplikasi Jaminan Online), a system designed to streamline and digitize the collateral management process, improving efficiency and accessibility.',
-    link: '/projects/project-btpn',
-    image: '/assets/images/btpn.png',
-    id: 'project-btpn',
-  },
-  {
     name: 'Software Engineer — Bank Jateng',
     description:
       'Bank Jateng is a regional bank that provides financial services in Central Java. Led the re-design of the company profile website and the back-office system, improving usability, performance, and operational efficiency.',
@@ -76,5 +54,27 @@ export const PROJECTS: Project[] = [
     link: '/projects/project-pegadaian',
     image: '/assets/images/pegadaian.png',
     id: 'project-pegadaian',
+  },
+  {
+    name: 'Software Engineer — BTPN',
+    description:
+      'BTPN (Bank Tabungan Pensiunan Nasional) is a leading digital banking provider in Indonesia. Developed AJO (Aplikasi Jaminan Online), a system designed to streamline and digitize the collateral management process, improving efficiency and accessibility.',
+    link: '/projects/project-btpn',
+    image: '/assets/images/btpn.png',
+    id: 'project-btpn',
+  },
+  {
+    name: 'Software Engineer — Madju Computeindo',
+    description:
+      'Madju Computeindo is an IT solutions provider offering enterprise software and cloud computing services. Developed a small ERP system that enables businesses to generate invoices for tax purposes and manage financial records efficiently.',
+    link: '/projects/project-madju-computeindo',
+    id: 'project-madju-computeindo',
+  },
+  {
+    name: 'Software Engineer — Zoan.co.id',
+    description:
+      'Zoan.co.id is an e-Commerce and logistics solutions company. Revamped the company profile website, enhancing its design, performance, and user experience to better showcase the company’s services.',
+    link: '/projects/project-zoan',
+    id: 'project-zoan',
   },
 ]
