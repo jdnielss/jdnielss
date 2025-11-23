@@ -11,12 +11,5 @@ export default function ProjectsLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <section className="space-y-6">
-      <h1 className="text-2xl font-semibold text-black dark:text-white">
-        Projects
-      </h1>
-      {children}
-    </section>
-  )
+  return <main className="prose-global">{children}</main>
 }

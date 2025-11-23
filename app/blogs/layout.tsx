@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Selected projects and case studies.',
-  alternates: { canonical: '/projects' },
+  title: 'Blogs',
+  description: 'Personal blog posts and notes.',
+  alternates: { canonical: '/blogs' },
 }
 
-export default function ProjectsLayout({
+export default function BlogsLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return <section className="space-y-6">{children}</section>
+  return <main className="prose-global">{children}</main>
 }
