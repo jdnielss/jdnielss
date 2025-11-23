@@ -20,6 +20,7 @@ export const PROJECTS: Project[] = [
     description:
       'Fundtastic Indonesia is a fintech startup that provides investment and financial management solutions. Led the DevOps team, implemented CI/CD pipelines, and managed cloud infrastructure to optimize deployment processes.',
     link: '/projects/project-fundtastic',
+    image: '/assets/images/fundtastic.png',
     id: 'project-fundtastic',
   },
   {
@@ -27,6 +28,7 @@ export const PROJECTS: Project[] = [
     description:
       'Airdrop Finder is a blockchain-based platform that helps users discover and participate in cryptocurrency airdrops. The company profile application was revised and the website performance was optimized to handle 3,000 concurrent users, reducing downtime by 80% in 10 minutes.',
     link: '/projects/project-airdrop-finder',
+    image: '/assets/images/airdropfinder.png',
     id: 'project-airdrop-finder',
   },
   {
@@ -34,6 +36,7 @@ export const PROJECTS: Project[] = [
     description:
       'Inspirasi Satu is a technology consulting firm that specializes in digital transformation. Developed the company profile and the core business website, ensuring a professional online presence to showcase services and expertise.',
     link: '/projects/project-inspirasi-satu',
+    image: '/assets/images/inspirasisatu.svg',
     id: 'project-inspirasi-satu',
   },
   {
@@ -55,6 +58,7 @@ export const PROJECTS: Project[] = [
     description:
       'BTPN (Bank Tabungan Pensiunan Nasional) is a leading digital banking provider in Indonesia. Developed AJO (Aplikasi Jaminan Online), a system designed to streamline and digitize the collateral management process, improving efficiency and accessibility.',
     link: '/projects/project-btpn',
+    image: '/assets/images/btpn.png',
     id: 'project-btpn',
   },
   {
@@ -62,6 +66,7 @@ export const PROJECTS: Project[] = [
     description:
       'Bank Jateng is a regional bank that provides financial services in Central Java. Led the re-design of the company profile website and the back-office system, improving usability, performance, and operational efficiency.',
     link: '/projects/project-bank-jateng',
+    image: '/assets/images/bank-jateng.png',
     id: 'project-bank-jateng',
   },
   {

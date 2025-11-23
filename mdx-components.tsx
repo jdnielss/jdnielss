@@ -15,9 +15,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       caption: string
     }) => {
       return (
-        <figure>
-          <img src={src} alt={alt} className="rounded-xl" />
-          <figcaption className="text-center">{caption}</figcaption>
+        <figure className="not-prose mx-auto max-w-4xl">
+          <div className="relative aspect-[16/9]">
+            <img
+              src={src}
+              alt={alt}
+              className="absolute inset-0 h-full w-full object-contain"
+            />
+            <figcaption className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded bg-black/30 px-2 py-0.5 text-[11px] text-white">
+              {caption}
+            </figcaption>
+          </div>
         </figure>
       )
     },

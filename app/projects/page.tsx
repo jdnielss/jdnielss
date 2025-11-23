@@ -36,30 +36,32 @@ export default function ProjectsIndex() {
           variants={VARIANTS_ITEM}
           className="space-y-2 rounded-2xl"
         >
-          <MorphingDialog
-            transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
-          >
-            <MorphingDialogTrigger>
-              <Image
-                src={project.image ?? '/placeholder.png'}
-                alt={project.name}
-                width={1280}
-                height={720}
-                className="aspect-[16/9] w-full cursor-zoom-in rounded-xl object-contain"
-              />
-            </MorphingDialogTrigger>
-            <MorphingDialogContainer>
-              <MorphingDialogContent className="relative aspect-[16/9] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+          <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+            <MorphingDialog
+              transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
+            >
+              <MorphingDialogTrigger>
                 <Image
                   src={project.image ?? '/placeholder.png'}
                   alt={project.name}
                   width={1280}
                   height={720}
-                  className="mx-auto aspect-[16/9] h-[50vh] w-auto max-w-full rounded-xl object-contain md:h-[70vh]"
+                  className="aspect-[16/9] w-full cursor-zoom-in rounded-xl object-contain"
                 />
-              </MorphingDialogContent>
-            </MorphingDialogContainer>
-          </MorphingDialog>
+              </MorphingDialogTrigger>
+              <MorphingDialogContainer>
+                <MorphingDialogContent className="relative aspect-[16/9] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+                  <Image
+                    src={project.image ?? '/placeholder.png'}
+                    alt={project.name}
+                    width={1280}
+                    height={720}
+                    className="mx-auto aspect-[16/9] h-[50vh] w-auto max-w-full rounded-xl object-contain md:h-[70vh]"
+                  />
+                </MorphingDialogContent>
+              </MorphingDialogContainer>
+            </MorphingDialog>
+          </div>
           <div className="px-1">
             <Link
               className="group relative inline-block font-[500] text-zinc-900 dark:text-zinc-50"

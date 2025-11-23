@@ -1,0 +1,148 @@
+export const metadata = {
+  title: 'How I chose a stack for Airdrop Finder',
+  description:
+    'AirdropFinder.com is a prominent cryptocurrency advertising agency and information-sharing platform, established in 2018, primarily serving the Indonesian market. It functions as a large community hub where crypto enthusiasts can find, share, and discuss current and upcoming cryptocurrency airdrops.',
+  alternates: { canonical: '/projects/project-airdrop-finder' },
+}
+
+<Cover
+  src="https://airdropfinder.com/assets/images/air_drop_about.svg"
+  alt="airdropfinder"
+  caption="airdropfinder.com"
+/>
+
+# About AirdropFinder
+
+AirdropFinder.com is a prominent cryptocurrency advertising agency and information-sharing platform, established in 2018, primarily serving the Indonesian market. It functions as a large community hub where crypto enthusiasts can find, share, and discuss current and upcoming cryptocurrency airdrops.
+
+# Problem
+
+The site was built entirely with client-side rendering. Search engines received a near-empty HTML shell and waited for JavaScript to hydrate before content appeared. Important listing pages and details were invisible to crawlers, which led to poor rankings and low discoverability.
+
+Content signals were inconsistent. Titles and descriptions were duplicated or missing, canonical URLs were not set, and there was no structured sitemap for topical pages. Sharing links produced generic previews with weak click-through because meta data was rendered too late.
+
+The codebase was tightly coupled and difficult to change. Data fetching lived inside components with ad‑hoc logic, repeated in multiple places. There was no clear separation of concerns, little reuse, and few guardrails like linting, formatting, or tests.
+
+As the product grew, change velocity slowed. Without modular boundaries or a predictable data layer, each feature added more duplication. Maintenance costs rose, onboarding took longer, and bug fixes were risky.
+
+A critical cause was the overuse of `use client` across pages and blogs. Marking every route as a client component disabled server rendering for content, so bots could only see the homepage and not the deeper pages. In the App Router, using `use client` at the top of a page promotes the entire subtree to client-only—great for interactive islands, but harmful when applied indiscriminately to content routes.
+
+Sample of the client-only pattern that blocked SEO:
+
+```tsx
+'use client'
+import { useEffect, useState } from 'react'
+
+export default function Page() {
+  const [items, setItems] = useState<any[]>([])
+
+  useEffect(() => {
+    fetch('/api/airdrops')
+      .then((res) => res.json())
+      .then(setItems)
+  }, [])
+
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.id}>{item.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+# Solution
+
+We rewrote the application with the Next.js App Router and introduced Strapi as a headless CMS. Content pages and blogs render as server components, with on-demand revalidation for freshness. This immediately restored crawler visibility and stabilized performance.
+
+CMS-driven SEO: editors manage title, description, canonical, and Open Graph fields directly in Strapi. Each route reads these fields at build time or revalidate time, ensuring consistent metadata without developer intervention.
+
+Sample SEO payload from CMS:
+
+```json
+{
+  "title": "Latest Airdrops — Airdrop Finder",
+  "description": "Curated airdrops and guides for the crypto community.",
+  "canonical": "/airdrops",
+  "ogImage": "https://cdn.example.com/uploads/airdrops_og.png"
+}
+```
+
+Mapping to Next.js metadata:
+
+```tsx
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const page = await fetch(
+    `${process.env.CMS_URL}/api/pages/${params.slug}`,
+  ).then((r) => r.json())
+  const seo = page.seo || {}
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: { canonical: seo.canonical },
+    openGraph: { images: seo.ogImage ? [seo.ogImage] : [] },
+  }
+}
+```
+
+Results: blogs and listing pages are indexable, link previews are accurate, and the team iterates content and SEO in the CMS without touching code. Maintainability improved with clearer boundaries, typed data fetching, and a predictable publishing workflow.
+
+## Performance
+
+![https://pagespeed.web.dev/analysis/https-airdropfinder-com/2d2g6qwr16?form_factor=desktop](/assets/airdropfinder/speed-result.png)
+
+Even with optimizations, the site serves many images. An 80% performance score is acceptable in this context because visual content is core to the experience. We use a CDN (Cloudflare) to offload delivery and employ responsive images and lazy loading to reduce initial payloads.
+
+Practical choices:
+
+- Optimize hero media carefully; avoid `priority` except where truly needed.
+- Provide multiple sizes so clients fetch the smallest viable asset.
+- Cache aggressively at the CDN; invalidate selectively when content changes.
+
+## SEO
+
+We achieved a 100/100 SEO score on PageSpeed Insights for the target pages after migrating to server-rendered routes and CMS-managed metadata.
+
+## Core Web Vitals
+
+Getting LCP and other vitals green is harder with image-heavy pages. The biggest wins came from focusing the LCP element and reducing work before first paint.
+
+- Make the LCP a single, predictable element (usually the hero image or title) and eliminate competing candidates.
+- Serve the hero via responsive images and set `priority` only on that hero.
+- Inline critical metadata and avoid client-only hydration for content routes.
+- Preload the primary font and reduce font weights in use.
+
+Sample hero image for LCP:
+
+```tsx
+import Image from 'next/image'
+
+export default function Hero() {
+  return (
+    <Image
+      src="https://cdn.example.com/hero-1600.jpg"
+      alt="Airdrop Finder hero"
+      width={1600}
+      height={900}
+      priority
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1600px"
+      className="aspect-[16/9] w-full rounded-xl object-cover"
+    />
+  )
+}
+```
+
+CLS and INP:
+
+- Reserve space for media with fixed aspect ratios to prevent layout shifts.
+- Defer non-critical scripts and avoid long tasks on interaction paths.
+- Use a CDN for images and cache aggressively; revalidate data rather than refetching on the client.
+
+## Continuous Improvement
+
+We don’t stop improving. After stabilizing SEO and architecture, we keep iterating on performance budgets, image pipelines, and interaction paths. Every release includes small, measurable changes tuning cache headers, trimming scripts, refining LCP targets so the experience gets faster without sacrificing content quality.
