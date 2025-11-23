@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
@@ -15,23 +15,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://jdnielss.vercel.app/'),
   alternates: {
-    canonical: '/'
+    canonical: '/',
   },
   title: {
     default: 'Juan Daniel - Personal website template',
-    template: '%s | Juan Daniel'
+    template: '%s | Juan Daniel',
   },
-  description:  'Hello, I am Juan Daniel, the Co-Founder and Chief Data and Information Security Officer (CDISO) at Denova Mind. My expertise lies in building scalable and secure technology infrastructures that power our AI-driven personality assessments.',
-};
+  description:
+    'Hello, I am Juan Daniel, the Co-Founder and Chief Data and Information Security Officer (CDISO) at Denova Mind. My expertise lies in building scalable and secure technology infrastructures that power our AI-driven personality assessments.',
+}
 
-const geist = Geist({
-  variable: '--font-geist',
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: '--font-plus-jakarta',
   subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 })
 
 export default function RootLayout({
@@ -42,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+        className={`${plusJakarta.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider
           enableSystem={true}

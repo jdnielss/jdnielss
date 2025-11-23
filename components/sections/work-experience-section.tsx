@@ -22,14 +22,23 @@ export function WorkExperienceSection() {
             rel="noopener noreferrer"
             key={job.id}
           >
-            <Spotlight className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50" size={64} />
+            <Spotlight
+              className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+              size={64}
+            />
             <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
               <div className="relative flex w-full flex-row justify-between">
                 <div>
-                  <h4 className="font-normal dark:text-zinc-100">{job.title}</h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">{job.company}</p>
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {job.title}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {job.company}
+                  </p>
                 </div>
-                <p className="text-zinc-600 dark:text-zinc-400">{job.start} - {job.end}</p>
+                <p className="text-zinc-600 dark:text-zinc-400">
+                  {job.start} - {job.end}
+                </p>
               </div>
             </div>
           </a>
@@ -38,4 +47,3 @@ export function WorkExperienceSection() {
     </motion.section>
   )
 }
-

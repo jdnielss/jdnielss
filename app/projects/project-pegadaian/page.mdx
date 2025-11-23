@@ -1,0 +1,52 @@
+export const metadata = {
+  title: 'Technical Writer — Pegadaian',
+  description:
+    'Pegadaian is a state-owned financial institution specializing in pawnshop and microfinance services. Authored comprehensive documentation including API specs, PRD, SDD, TSD, and user manuals to align engineering and business teams.',
+  alternates: { canonical: '/projects/project-pegadaian' },
+}
+
+# Technical Writer — Pegadaian
+
+![pegadaian.co.id](/assets/images/pegadaian.png)
+
+Pegadaian is a state-owned financial institution specializing in pawnshop and microfinance services. I wrote and maintained project documentation that connected business requirements with engineering delivery.
+
+## Deliverables
+
+- API specifications and integration guides
+- Software Development Document (SDD)
+- Transactional & System Design (TSD)
+- User Manuals for internal users and customers
+
+## Story
+
+This documentation was produced after the developers completed their features. I reverse‑engineered the system behavior from the codebase, commit history, and API traffic, then wrote artifacts that accurately reflected how the product worked in production.
+
+- API specs were derived from actual request/response samples, documented with examples, error codes, and idempotency notes.
+- The SDD captured real service boundaries, data models, and sequence diagrams based on implemented flows (loan initiation, repayment, audit logs).
+- The TSD mapped modules to services, endpoints, payload contracts, and database interactions.
+- User manuals were written from the shipped UI, focusing on role‑based tasks (tellers, supervisors, auditors) with step‑by‑step instructions and screenshots.
+
+All docs include versioning, changelogs, and cross‑references so future changes remain traceable. This reduced support requests, improved onboarding, and made QA test coverage easier to maintain because every behavior had a documented source of truth.
+
+![pegadaian.co.id](/assets/images/sample-pegadaian.png)
+
+### User Manual — User Page
+
+I wrote the User Page manual directly from the shipped interface so operators could follow the screen as they worked. The guide narrates a typical session: arriving on the Users screen, narrowing the list with search and filters, opening a profile to adjust details, and creating a new user with clear form expectations. Messages and outcomes (like success toasts and updated rows) are documented so every action feels predictable.
+
+Sample — Registration form data:
+
+```json
+{
+  "fullName": "Rina Setiawan",
+  "username": "rsetiawan",
+  "email": "rina@pegadaian.co.id",
+  "phone": "+62 812-555-1234",
+  "role": "teller",
+  "branch": "Jakarta Selatan",
+  "status": "active"
+}
+```
+
+Example flow: open Users, select “New User”, fill the form, submit, confirm the “User created” toast, and see the new entry at the top of the list with today’s timestamp.

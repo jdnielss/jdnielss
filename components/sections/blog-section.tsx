@@ -6,8 +6,11 @@ import { AnimatedBackground } from '@/components/ui/animated-background'
 import { BLOG_POSTS } from '@/app/data'
 
 export function BlogSection() {
-  const [expandedBlogPosts, setExpandedBlogPosts] = useState<Record<string, boolean>>({})
-  const truncate = (s: string, n: number) => (s.length > n ? s.slice(0, n) + '…' : s)
+  const [expandedBlogPosts, setExpandedBlogPosts] = useState<
+    Record<string, boolean>
+  >({})
+  const truncate = (s: string, n: number) =>
+    s.length > n ? s.slice(0, n) + '…' : s
 
   const VARIANTS_SECTION = {
     hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
@@ -25,19 +28,29 @@ export function BlogSection() {
           transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
         >
           {BLOG_POSTS.map((post) => (
-            <div key={post.uid} className="-mx-3 rounded-xl px-3 py-3" data-id={post.uid}>
+            <div
+              key={post.uid}
+              className="-mx-3 rounded-xl px-3 py-3"
+              data-id={post.uid}
+            >
               <div className="flex flex-col space-y-1">
                 <Link className="rounded-xl" href={post.link}>
-                  <h4 className="font-normal dark:text-zinc-100">{post.title}</h4>
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {post.title}
+                  </h4>
                 </Link>
                 <p className="text-zinc-500 dark:text-zinc-400">
-                  {expandedBlogPosts[post.uid] ? post.description : truncate(post.description, 100)}
+                  {expandedBlogPosts[post.uid]
+                    ? post.description
+                    : truncate(post.description, 100)}
                 </p>
                 {post.description.length > 100 && (
                   <div>
                     <button
                       type="button"
-                      aria-expanded={expandedBlogPosts[post.uid] ? 'true' : 'false'}
+                      aria-expanded={
+                        expandedBlogPosts[post.uid] ? 'true' : 'false'
+                      }
                       className="w-fit rounded-full bg-zinc-100 px-2.5 py-1 text-xs text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
                       onClick={() => {
                         setExpandedBlogPosts((prev) => ({
@@ -58,4 +71,3 @@ export function BlogSection() {
     </motion.section>
   )
 }
-
