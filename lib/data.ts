@@ -5,6 +5,7 @@ type WorkExperience = {
   title: string
   start: string
   end: string
+  web?: string
   id: string
 }
 type SocialLink = {
@@ -18,6 +19,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Co-Founder And CDISO',
     start: 'Sep - 2025',
     end: 'Present',
+    web: 'https://denovamind.com',
     id: 'work1',
   },
   {
@@ -30,15 +32,17 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Enigmacamp',
     title: 'DevOps Engineer',
-    start: 'Oct - 2023',
+    start: 'Oct 2023',
     end: 'Present',
+    web: 'https://enigmacamp.com',
     id: 'work2',
   },
   {
     company: 'Enigmacamp',
-    title: 'Fullstack Software Engineer',
-    start: 'Apr - 2020',
+    title: 'Software Engineer',
+    start: 'Apr 2020',
     end: ' Oct 2023',
+    web: 'https://enigmacamp.com',
     id: 'work3',
   },
 ]

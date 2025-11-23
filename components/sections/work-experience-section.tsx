@@ -1,6 +1,8 @@
 'use client'
 import { motion } from 'motion/react'
 import { WORK_EXPERIENCE } from '@/lib/data'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
 
 export function WorkExperienceSection() {
   const VARIANTS_SECTION = {
@@ -25,9 +27,15 @@ export function WorkExperienceSection() {
                   <h4 className="font-normal dark:text-zinc-100">
                     {job.title}
                   </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
+                  <Link
+                    className="inline-flex items-center gap-1 text-zinc-500 dark:text-zinc-400"
+                    href={job.web || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {job.company}
-                  </p>
+                    <ArrowUpRight className="h-3 w-3" />
+                  </Link>
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400">
                   {job.start} - {job.end}

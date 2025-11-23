@@ -2,7 +2,6 @@
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { AnimatedBackground } from '@/components/ui/animated-background'
 import { BLOG_POSTS } from '@/lib/blog'
 
 export function BlogSection() {
@@ -22,25 +21,20 @@ export function BlogSection() {
   return (
     <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
       <h3 className="mb-3 text-lg font-medium">Blog</h3>
-      <div className="flex flex-col space-y-0">
-        <AnimatedBackground
-          enableHover={false}
-          className="pointer-events-auto h-full w-full rounded-lg bg-zinc-100 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-900/80 dark:ring-zinc-800/50"
-          transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
-        >
-          {displayedBlogPosts.map((post) => (
-            <div
-              key={post.uid}
-              className="group -mx-3 rounded-xl px-3 py-3 ring-1 ring-zinc-200/50 transition-colors duration-200 ring-inset hover:bg-zinc-200/50 dark:ring-zinc-800/50 dark:hover:bg-zinc-800/50"
-              data-id={post.uid}
-            >
+      <div className="flex flex-col space-y-2">
+        {displayedBlogPosts.map((post) => (
+          <div
+            key={post.uid}
+            className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+          >
+            <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
               <div className="flex flex-col space-y-1">
                 <Link className="block rounded-xl" href={post.link}>
-                  <h4 className="font-normal text-zinc-900 transition-colors group-hover:text-zinc-950 dark:text-zinc-100 dark:group-hover:text-zinc-50">
+                  <h4 className="font-normal text-zinc-900 dark:text-zinc-100">
                     {post.title}
                   </h4>
                 </Link>
-                <p className="text-zinc-600 transition-colors group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300">
+                <p className="text-zinc-600 dark:text-zinc-400">
                   {expandedBlogPosts[post.uid]
                     ? post.description
                     : truncate(post.description, 100)}
@@ -66,8 +60,8 @@ export function BlogSection() {
                 )}
               </div>
             </div>
-          ))}
-        </AnimatedBackground>
+          </div>
+        ))}
         {BLOG_POSTS.length > 4 && (
           <div className="mt-4 flex justify-center">
             <Link
