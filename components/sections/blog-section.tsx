@@ -5,9 +5,6 @@ import { useState } from 'react'
 import { BLOG_POSTS } from '@/lib/blog'
 
 export function BlogSection() {
-  const [expandedBlogPosts, setExpandedBlogPosts] = useState<
-    Record<string, boolean>
-  >({})
   const displayedBlogPosts = BLOG_POSTS.slice(0, 4)
   const truncate = (s: string, n: number) =>
     s.length > n ? s.slice(0, n) + '…' : s
@@ -29,35 +26,14 @@ export function BlogSection() {
           >
             <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
               <div className="flex flex-col space-y-1">
-                <Link className="block rounded-xl" href={post.link}>
+                <Link className="block rounded-xl" href={`/blogs/${post.uid}`}>
                   <h4 className="font-normal text-zinc-900 dark:text-zinc-100">
                     {post.title}
                   </h4>
                 </Link>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  {expandedBlogPosts[post.uid]
-                    ? post.description
-                    : truncate(post.description, 100)}
+                  {truncate(post.description, 50)}
                 </p>
-                {post.description.length > 100 && (
-                  <div>
-                    <button
-                      type="button"
-                      aria-expanded={
-                        expandedBlogPosts[post.uid] ? 'true' : 'false'
-                      }
-                      className="w-fit rounded-full bg-zinc-100 px-2.5 py-1 text-xs text-black ring-1 ring-zinc-200/50 transition-colors duration-200 ring-inset hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-700"
-                      onClick={() => {
-                        setExpandedBlogPosts((prev) => ({
-                          ...prev,
-                          [post.uid]: !prev[post.uid],
-                        }))
-                      }}
-                    >
-                      {expandedBlogPosts[post.uid] ? 'Show less' : 'Show more'}
-                    </button>
-                  </div>
-                )}
               </div>
             </div>
           </div>
