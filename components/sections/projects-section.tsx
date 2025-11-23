@@ -41,13 +41,13 @@ export function ProjectsSection() {
                   />
                 </MorphingDialogTrigger>
                 <MorphingDialogContainer>
-                  <MorphingDialogContent className="relative aspect-[16/9] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+                  <MorphingDialogContent className="relative w-[92vw] max-w-[960px] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset sm:w-[85vw] dark:bg-zinc-950 dark:ring-zinc-800/50">
                     <Image
                       src={project.image ?? '/placeholder.png'}
                       alt={project.name}
                       width={1280}
                       height={720}
-                      className="mx-auto aspect-[16/9] h-[50vh] w-auto max-w-full rounded-xl object-contain md:h-[70vh]"
+                      className="mx-auto h-auto max-h-[70vh] w-full rounded-xl object-contain sm:max-h-[75vh]"
                     />
                   </MorphingDialogContent>
                 </MorphingDialogContainer>
