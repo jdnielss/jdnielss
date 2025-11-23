@@ -1,6 +1,6 @@
 import { EMAIL, SOCIAL_LINKS } from '@/lib/data'
 
-const SITE_URL = 'https://nim-fawn.vercel.app/'
+const SITE_URL = 'https://jdnielss.vercel.app/'
 
 export function JsonLd() {
   const place = {

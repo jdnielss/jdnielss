@@ -1,14 +1,8 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'motion/react'
 import { PROJECTS } from '@/lib/projects'
-import {
-  MorphingDialog,
-  MorphingDialogTrigger,
-  MorphingDialogContent,
-  MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog'
+import { ProjectMediaDialog } from '@/components/ui/project-media-dialog'
 
 export default function ProjectsIndex() {
   const VARIANTS_CONTAINER = {
@@ -37,30 +31,12 @@ export default function ProjectsIndex() {
           className="space-y-2 rounded-2xl"
         >
           <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-            <MorphingDialog
-              transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
-            >
-              <MorphingDialogTrigger>
-                <Image
-                  src={project.image ?? '/placeholder.png'}
-                  alt={project.name}
-                  width={1280}
-                  height={720}
-                  className="aspect-[16/9] w-full cursor-zoom-in rounded-xl object-contain"
-                />
-              </MorphingDialogTrigger>
-              <MorphingDialogContainer>
-                <MorphingDialogContent className="relative aspect-[16/9] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-                  <Image
-                    src={project.image ?? '/placeholder.png'}
-                    alt={project.name}
-                    width={1280}
-                    height={720}
-                    className="mx-auto aspect-[16/9] h-[50vh] w-auto max-w-full rounded-xl object-contain md:h-[70vh]"
-                  />
-                </MorphingDialogContent>
-              </MorphingDialogContainer>
-            </MorphingDialog>
+            <ProjectMediaDialog
+              src={project.image ?? '/placeholder.png'}
+              alt={project.name}
+              width={1280}
+              height={720}
+            />
           </div>
           <div className="px-1">
             <Link
