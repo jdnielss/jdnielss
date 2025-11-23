@@ -19,7 +19,7 @@ const VARIANTS_CONTAINER = {
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-20"
+      className="space-y-24"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
