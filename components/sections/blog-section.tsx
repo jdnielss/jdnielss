@@ -3,7 +3,7 @@ import { motion } from 'motion/react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import { BLOG_POSTS } from '@/app/data'
+import { BLOG_POSTS } from '@/lib/data'
 
 export function BlogSection() {
   const [expandedBlogPosts, setExpandedBlogPosts] = useState<

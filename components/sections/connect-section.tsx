@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import { Magnetic } from '@/components/ui/magnetic'
-import { EMAIL, SOCIAL_LINKS } from '@/app/data'
+import { EMAIL, SOCIAL_LINKS } from '@/lib/data'
 
 function MagneticSocialLink({
   children,

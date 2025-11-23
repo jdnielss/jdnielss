@@ -1,4 +1,4 @@
-import { EMAIL, SOCIAL_LINKS } from '@/app/data'
+import { EMAIL, SOCIAL_LINKS } from '@/lib/data'
 
 const SITE_URL = 'https://nim-fawn.vercel.app/'
 

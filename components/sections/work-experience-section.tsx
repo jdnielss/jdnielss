@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import { Spotlight } from '@/components/ui/spotlight'
-import { WORK_EXPERIENCE } from '@/app/data'
+import { WORK_EXPERIENCE } from '@/lib/data'
 
 export function WorkExperienceSection() {
   const VARIANTS_SECTION = {

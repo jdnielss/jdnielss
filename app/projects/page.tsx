@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'motion/react'
-import { PROJECTS } from '@/app/projects'
+import { PROJECTS } from '@/lib/projects'
 import {
   MorphingDialog,
   MorphingDialogTrigger,

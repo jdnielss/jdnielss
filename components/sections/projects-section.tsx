@@ -2,7 +2,7 @@
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PROJECTS } from '@/app/projects'
+import { PROJECTS } from '@/lib/projects'
 
 export function ProjectsSection() {
   const displayedProjects = PROJECTS.slice(0, 4)

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
-import { BLOG_POSTS } from './data'
-import { PROJECTS } from './projects'
+import { BLOG_POSTS } from '../lib/data'
+import { PROJECTS } from '../lib/projects'
 
 const BASE_URL = 'https://jdnielss.vercel.app'
 
