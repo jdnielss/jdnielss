@@ -25,7 +25,7 @@ export function BlogSection() {
           >
             <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
               <div className="flex flex-col space-y-1">
-                <Link className="block rounded-xl" href={`/blogs/${post.uid}`}>
+                <Link className="block rounded-xl" href={`/blogs/${post.link}`}>
                   <h4 className="font-normal text-zinc-900 dark:text-zinc-100">
                     {post.title}
                   </h4>
