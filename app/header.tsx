@@ -16,7 +16,7 @@ export function Header() {
           className="text-zinc-600 dark:text-zinc-500"
           delay={0.5}
         >
-          I don't even know who I am
+          I'm a Co-Founder and Chief Data and Information Security Officer (CDISO) at Denova Mind.
         </TextEffect>
       </div>
     </header>
