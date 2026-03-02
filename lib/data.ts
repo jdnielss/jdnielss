@@ -16,7 +16,7 @@ type SocialLink = {
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Denovamind',
-    title: 'Co-Founder And CDISO',
+    title: 'Co-Founder And CISO',
     start: 'Sep - 2025',
     end: 'Present',
     web: 'https://denovamind.com',

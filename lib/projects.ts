@@ -16,6 +16,14 @@ export const PROJECTS: Project[] = [
     id: 'project-laundrytrush',
   },
   {
+    name: 'Full Stack Software Engineer — INSPIRE JEC',
+    description:
+      'Institut Pendidikan dan Riset JEC (INSPIRE JEC) is an Indonesia Non-Profit Organization under Yayasan Pilar Mitra Pendidikan based at JEC Eye Hospitals and Clinics.',
+    link: '/projects/project-inspire',
+    image: '/assets/images/jec.png',
+    id: 'project-inspire',
+  },
+  {
     name: 'Full Stack Software Engineer — JEC Indonesia',
     description:
       'JEC is a trusted eye hospital in Indonesia, offering advanced LASIK, cataract, retina, and refractive surgery services using cutting-edge technology. I also design the system architecture that supports their operations and patient experience, including SEO and GEO optimization to strengthen their digital visibility and reach.',
