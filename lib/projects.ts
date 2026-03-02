@@ -8,6 +8,14 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    name: 'Software Engineer — Laundrytrush',
+    description:
+      'Laundrytrush.com is a laundry service platform. Built the company profile and optimized performance and SEO to improve discovery and conversion.',
+    link: '/projects/project-laundrytrush',
+    image: '/assets/images/laundrytrush.png',
+    id: 'project-laundrytrush',
+  },
+  {
     name: 'Full Stack Software Engineer — JEC Indonesia',
     description:
       'JEC is a trusted eye hospital in Indonesia, offering advanced LASIK, cataract, retina, and refractive surgery services using cutting-edge technology. I also design the system architecture that supports their operations and patient experience, including SEO and GEO optimization to strengthen their digital visibility and reach.',
