@@ -12,8 +12,8 @@ export function IntroSection() {
     <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
       <div className="flex-1">
         <p className="text-zinc-600 dark:text-zinc-400">
-          Hello, I am Juan Daniel, the Co-Founder and Chief Data and Information
-          Security Officer (CDISO) at Denova Mind.
+          Hello, I am Juan Daniel, the Co-Founder and Chief Information
+          Security Officer (CISO) at Denova Mind.
         </p>
       </div>
     </motion.section>
